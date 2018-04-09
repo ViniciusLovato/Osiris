@@ -10,7 +10,8 @@
     "test": "npm run test:mocha && npm run test:feature",
     "test:mocha": "bin/mocha-test || exit 0",
     "test:feature": "bin/wdio-test || exit 0",
-    "lint": "node ./node_modules/eslint/bin/eslint.js ."
+    "lint": "node ./node_modules/eslint/bin/eslint.js .",
+    "lint-fix": "node ./node_modules/eslint/bin/eslint.js . --fix"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
@@ -21,7 +22,8 @@
     "http-errors": "~1.6.2",
     "jade": "~1.11.0",
     "mongoose": "^5.0.13",
-    "morgan": "~1.9.0"
+    "morgan": "~1.9.0",
+    "validator": "^9.4.1"
   },
   "devDependencies": {
     "chai": "^4.1.2",
