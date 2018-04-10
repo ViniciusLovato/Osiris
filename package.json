@@ -11,7 +11,11 @@
     "test:mocha": "bin/mocha-test || exit 0",
     "test:feature": "bin/wdio-test || exit 0",
     "lint": "node ./node_modules/eslint/bin/eslint.js .",
-    "lint-fix": "node ./node_modules/eslint/bin/eslint.js . --fix"
+    "lint-fix": "node ./node_modules/eslint/bin/eslint.js . --fix",
+    "prestart": "mongod --dbpath data --fork --logpath /tmp/mongo_osiris.prod.log",
+    "poststop": "mongo admin --eval 'db.shutdownServer()' > /dev/null",
+    "pretest":  "mongod --dbpath data --fork --logpath /tmp/mongo_osiris.test.log",
+    "posttest": "mongo admin --eval 'db.shutdownServer()' > /dev/null"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
