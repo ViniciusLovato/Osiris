@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const Ticket = require('../models/user');
 
 // Create and return a sample Item object
 const buildUserObject = (options = {}) => {
@@ -8,13 +9,24 @@ const buildUserObject = (options = {}) => {
   return { firstName, lastName, email };
 };
 
-// Add a sample Item object to mongodb
+// Add a user Item object to mongodb
 const seedUserToDatabase = async (options = {}) => {
   const user = await User.create(buildUserObject(options));
   return user;
 };
 
+// TODO
+const buildTicketObject = (options = {}) => options;
+
+// Add a ticket Item object to mongodb
+const seedTicketToDatabase = async (options = {}) => {
+  const ticket = await Ticket.create(buildTicketObject(options));
+  return ticket;
+};
+
+
 module.exports = {
   buildUserObject,
   seedUserToDatabase,
+  seedTicketToDatabase,
 };
