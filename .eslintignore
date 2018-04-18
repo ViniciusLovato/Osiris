@@ -1,6 +1,7 @@
 # Dependency directories
 node_modules/
 client/
+bin/
 package-lock.json
 package.json
 # registerServiceWorker.js
