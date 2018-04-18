@@ -1,5 +1,4 @@
 const { mongoose } = require('../database');
-const { isEmail } = require('validator');
 
 const User = mongoose.model(
   'User',
@@ -15,10 +14,6 @@ const User = mongoose.model(
     email: {
       type: String,
       required: true,
-      validate: {
-        validator: isEmail,
-        message: 'invalid email',
-      },
     },
   }),
 );

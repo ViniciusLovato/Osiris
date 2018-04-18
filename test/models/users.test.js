@@ -45,13 +45,6 @@ describe('Model: User', () => {
   });
 
   describe('email', () => {
-    it('should only accept a valid email', async () => {
-      const invalidEmail = 'valiasdfadsf.com';
-      const user = new User({ email: invalidEmail });
-      user.validateSync();
-      assert.strictEqual(user.errors.email.message, 'invalid email');
-    });
-
     it('should be a required field', async () => {
       const user = new User({ email: '' });
       user.validateSync();
