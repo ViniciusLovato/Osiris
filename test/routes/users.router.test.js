@@ -1,9 +1,9 @@
 const { assert } = require('chai');
 const request = require('supertest');
 const app = require('../../app');
-const { seedUserToDatabase, buildUserObject } = require('../test-utils');
 const User = require('../../models/user');
 
+const { seedUserToDatabase, buildUserObject } = require('../test-utils');
 const { connectDatabaseAndDropData, diconnectDatabase } = require('../setup-teardown-utils');
 
 describe('Server path /users', () => {
@@ -12,7 +12,7 @@ describe('Server path /users', () => {
   afterEach(diconnectDatabase);
 
   describe('POST', () => {
-    it('save the video to the database', async () => {
+    it('save the user to the database', async () => {
       const user = buildUserObject();
 
       await request(app)
@@ -42,10 +42,18 @@ describe('Server path /users', () => {
   });
 
   describe('GET', () => {
-    it('renders the correct username', async () => {
+    it('renders the all the users', async () => {
       const user = await seedUserToDatabase();
       const response = await request(app)
         .get('/api/users');
+
+      assert.include(response.text, user.firstName);
+    });
+
+    it('renders the user correct usre by id', async () => {
+      const user = await seedUserToDatabase();
+      const response = await request(app)
+        .get(`/api/users/${user._id}`);
 
       assert.include(response.text, user.firstName);
     });
