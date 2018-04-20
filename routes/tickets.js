@@ -34,9 +34,10 @@ const router = express.Router();
 */
 router.post('/', async (req, res) => {
   const ticketProperties = req.body;
-  const ticket = new Ticket(ticketProperties);
+  const ticket = new Ticket(ticketProperties).populate('assignee').populate('requester');
   ticket.validateSync();
 
+  
   if (ticket.errors) {
     res.status(400).send({ errors: ticket.errors });
   } else {
@@ -56,7 +57,7 @@ router.post('/', async (req, res) => {
 *
 */
 router.get('/', async (req, res) => {
-  const tickets = await Ticket.find({});
+  const tickets = await Ticket.find({}).populate('assignee').populate('requester');
   res.send({ tickets });
 });
 
@@ -74,7 +75,7 @@ router.get('/', async (req, res) => {
 */
 router.get('/:id', async (req, res) => {
   const ticketId = req.params.id;
-  const ticket = await Ticket.findById(ticketId);
+  const ticket = await Ticket.findById(ticketId).populate('assignee').populate('requester');
   res.send({ ticket });
 });
 
@@ -112,8 +113,7 @@ router.get('/:id', async (req, res) => {
 router.put('/:id', async (req, res) => {
   const ticketId = req.params.id;
   const ticketProperties = req.body;
-  const ticket = new Ticket(req.body);
-
+  const ticket = new Ticket(ticketProperties);
   ticket.validateSync();
   if (ticket.errors) {
     res.status(400).send({ errors: ticket.errors });

@@ -18,8 +18,8 @@ const seedUserToDatabase = async (options = {}) => {
 const buildTicketObject = (options = {}, user) => {
   const subject = options.subject || 'Ticket subject';
   const description = options.description || 'Ticket description';
-  const requester = user._id;
-  const assignee = user._id;
+  const requester = user._id.toString();
+  const assignee = user._id.toString();
   const status = options.status || 'New';
   const priority = options.priority || 'Medium';
 

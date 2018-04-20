@@ -25,7 +25,7 @@ describe('Server path /tickets', () => {
         .send(ticket);
 
       const addedTicket = await Ticket.findOne(ticket);
-      assert.equal(response.status, 200);
+      assert.equal(response.status, 201);
       assert.isNotNull(addedTicket);
       assert.isNotNull(addedTicket.subject);
     });
@@ -55,6 +55,19 @@ describe('Server path /tickets', () => {
 
       assert.include(response.text, ticket.subject);
     });
+
+    it('populates the ticket with assignee', async () => {
+      // Setup - seed user because we need an assignee and reporter
+      // In this case they will be the same
+      const user = await seedUserToDatabase();
+      const ticket = await seedTicketToDatabase({}, user);
+
+      const response = await request(app)
+        .get(`/api/tickets/${ticket._id}`);
+
+      assert.include(response.text, ticket.subject);
+      assert.include(response.text, user.firstName);
+    });
   });
 
   describe('PUT', () => {
@@ -63,7 +76,7 @@ describe('Server path /tickets', () => {
       // In this case they will be the same
       const user = await seedUserToDatabase();
       const ticketProperties = buildTicketObject({}, user);
-      const ticket = await seedTicketToDatabase(ticketProperties);
+      const ticket = await seedTicketToDatabase(ticketProperties, user);
 
       ticketProperties.subject = 'another subject';
 
@@ -73,7 +86,7 @@ describe('Server path /tickets', () => {
         .send(ticketProperties);
 
       const updateTicket = await Ticket.findById(ticket._id);
-      assert.include(updateTicket.firstName, ticketProperties.firstName);
+      assert.include(updateTicket.subject, ticketProperties.subject);
     });
   });
 
@@ -85,7 +98,7 @@ describe('Server path /tickets', () => {
       const ticket = await seedTicketToDatabase({}, user);
 
       await request(app)
-        .delete(`/api/ticket/${ticket.id}`);
+        .delete(`/api/tickets/${ticket.id}`);
 
       const removed = await Ticket.findById(ticket._id);
       assert.isNull(removed);
