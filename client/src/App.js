@@ -1,22 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
+import Navbar from './navbar/Navbar';
+import List from './list/List';
 
 class App extends Component {
-  state = {users: []};
-
-  componentDidMount() {
-    fetch('/users')
-      .then(res => res.json())
-      .then(users => this.setState({ users }));
-  }
 
   render() {
     return (
-      <div  id="users-container" className="App">
-        <h1>Users</h1>
-        {this.state.users.map(user =>
-          <div key={user.id}>{user.username}</div>
-        )}
+      <div>
+        <Navbar />
+        <div id="users-container" className="App">
+          <List/>
+        </div>
       </div>
     );
   }
