@@ -84,7 +84,7 @@ class List extends Component {
   render() {
     return (   
       <div>
-        <button onClick={this.shuffleItems}>
+        <button className="button is-primary is-outlined"onClick={this.shuffleItems}>
           Shuffle!
         </button>
         <FlipMove
