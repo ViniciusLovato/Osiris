@@ -15,11 +15,11 @@ const SidebarContent = () => {
         </div>
       </nav>
       <div>
-        <aside class="menu">
-          <p class="menu-label">
+        <aside className="menu">
+          <p className="menu-label">
             Overview
           </p>
-          <ul class="menu-list">
+          <ul className="menu-list">
             <li><Link to="/dashboard">Dashboard</Link></li>
             <li><Link to="/tickets">Tickets</Link></li>
             <li>
@@ -29,10 +29,10 @@ const SidebarContent = () => {
               </ul>
             </li>
           </ul>
-          <p class="menu-label">
+          <p className="menu-label">
             Administration
           </p>
-          <ul class="menu-list">
+          <ul className="menu-list">
             <li><a>Settings</a></li>
           </ul>
         </aside>

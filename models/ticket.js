@@ -15,12 +15,12 @@ const Ticket = mongoose.model(
     requester: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
-      required: true,
+      required: false,
     },
     assignee: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
-      required: true,
+      required: false,
     },
     status: {
       type: String,
