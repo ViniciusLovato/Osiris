@@ -7,8 +7,11 @@ import SidebarContent from './sidebarContent/SidebarContent';
 
 import './App.css';
 import Navbar from './navbar/Navbar';
-import List from './list/List';
+
+import TicketsOverview from './ticketsOverview/TicketsOverview'
 import Dashboard from './dashboard/Dashboard';
+import FlexContainer from './flexContainer/FlexContainer';
+import TicketForm from './ticketForm/ticketForm';
 
 class App extends Component {
 
@@ -36,11 +39,12 @@ class App extends Component {
           docked={true}
           onSetOpen={this.onSetSidebarOpen}>
           <Navbar />
-            <div>
-              <Route exact path="/"/>
-              <Route path="/dashboard" component={Dashboard} />
-              <Route path="/list" component={List} />
-            </div>
+          <FlexContainer>
+            <Route exact path="/"/>
+            <Route path="/dashboard" component={Dashboard} />
+            <Route path="/tickets" component={TicketsOverview} />
+            <Route path="/createTicket" component={TicketForm} />
+          </FlexContainer>
         </Sidebar>
       </Router>
       

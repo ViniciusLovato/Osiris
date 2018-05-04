@@ -21,9 +21,10 @@ const SidebarContent = () => {
           </p>
           <ul class="menu-list">
             <li><Link to="/dashboard">Dashboard</Link></li>
-            <li><Link to="/list">Tickets</Link></li>
+            <li><Link to="/tickets">Tickets</Link></li>
             <li>
               <ul>
+                <li><Link to="/createTicket">Create Ticket</Link></li>
                 <li><a>Activity</a></li>
               </ul>
             </li>

@@ -83,7 +83,7 @@ class List extends Component {
 
   render() {
     return (   
-      <div>
+      <div className="list">
         <button className="button is-primary is-outlined"onClick={this.shuffleItems}>
           Shuffle!
         </button>
