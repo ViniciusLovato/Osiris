@@ -1,0 +1,133 @@
+$card-margin-left: 80px;
+$card-margin-right: 80px;
+$card-margin-top: 20px;
+$card-margin-bottom: 20px;
+
+$border-size: 10px;
+
+.card {
+  display: flex;
+
+  margin-left: $card-margin-left;
+  margin-right: $card-margin-right;
+
+  margin-top: $card-margin-top;
+  margin-bottom: $card-margin-bottom;
+
+  box-shadow: 0 1px 3px 0 hsla(0, 0%, 0%, 0.2);
+  border-radius: 8px;
+
+  border-right: solid $border-size gray;
+
+  &.Low {
+    border-right: solid $border-size gray;
+  }
+
+  &.Medium {
+    border-right: solid $border-size green;
+  }
+  
+  &.High {
+    border-right: solid $border-size orange;
+  }
+
+  &.Urgent {
+    border-right: solid $border-size red;
+  }
+
+  .card-content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    .user-avatar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .pic {
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+        background-color: darkslateblue;
+      }
+
+      .name {
+        margin-top: 4px;
+        color: #555555;
+        font-size: 0.7em;
+      }
+    }
+
+    .ticket-info{
+      margin-left: 24px;
+      margin-right: 24px;
+      
+      flex-grow: 1;
+
+      .header {
+        .subject {
+          font-size: 1.1em;
+          font-weight: bold;
+        }
+
+        .timestamp {
+          padding-left: 12px;
+          font-size: 0.8em;
+          color: #999999;
+        }
+      }
+
+      .description {
+        color: #555555;
+        font-size: 0.9em;
+      }
+    }
+
+    .ticket-status {
+      margin-left: 24px;
+      margin-right: 24px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .status {
+        width: 35px;
+        height: 35px;
+        border-radius: 35px;
+        background-color: cadetblue;
+      }
+
+      .description {
+        margin-top: 2px;        
+        color: #555555;
+        font-size: 0.7em;
+      }
+    }
+
+    .project-info {
+      margin-left: 24px;
+      margin-right: 24px;
+      width: 250px;
+
+      .project {
+        font-weight: bold;
+        color: #555555;
+      }
+    }
+
+    .tag-info {
+      .tag {
+        margin-right: 4px;
+      }
+    }
+
+
+    .content {
+      text-align: left;
+    }
+  }
+}
