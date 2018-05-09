@@ -22,9 +22,10 @@ const buildTicketObject = (options = {}, user) => {
   const assignee = user._id.toString();
   const status = options.status || 'New';
   const priority = options.priority || 'Medium';
+  const project = options.poject || 'A random project';
 
   return {
-    subject, description, requester, assignee, status, priority,
+    subject, description, requester, assignee, status, priority, project,
   };
 };
 

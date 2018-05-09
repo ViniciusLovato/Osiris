@@ -72,5 +72,41 @@ describe('Model: Ticket', () => {
       assert.strictEqual(ticket.errors.status.message, 'Path `status` is required.');
     });
   });
+
+  describe('project', () => {
+    it('should be a string', async () => {
+      const nonStringTitle = 1;
+      const ticket = {
+        project: nonStringTitle,
+      };
+
+      const createdTicket = new Ticket(ticket);
+      assert.strictEqual(createdTicket.project, nonStringTitle.toString());
+    });
+
+    it('should be a required field', async () => {
+      const ticket = new Ticket({ project: '' });
+      ticket.validateSync();
+      assert.strictEqual(ticket.errors.project.message, 'Path `project` is required.');
+    });
+  });
+
+  describe('createdAt', () => {
+    it('should be a date', async () => {
+      const date = new Date();
+      const ticket = {
+        createdAt: date,
+      };
+
+      const createdTicket = new Ticket(ticket);
+      assert.strictEqual(createdTicket.createdAt, date);
+    });
+
+    it('should be a required field', async () => {
+      const ticket = new Ticket({ createdAt: '' });
+      ticket.validateSync();
+      assert.strictEqual(ticket.errors.createdAt.message, 'Path `createdAt` is required.');
+    });
+  });
 });
 

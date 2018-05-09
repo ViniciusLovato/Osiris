@@ -34,6 +34,15 @@ const Ticket = mongoose.model(
       default: 'Medium',
       required: true,
     },
+    createdAt: {
+      type: Date,
+      default: new Date(),
+      required: true,
+    },
+    project: {
+      type: String,
+      required: true,
+    },
   }),
 );
 
