@@ -40,26 +40,6 @@ $border-size: 10px;
     display: flex;
     align-items: center;
 
-    .user-avatar {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-
-      .pic {
-        width: 50px;
-        height: 50px;
-        border-radius: 50px;
-        background-color: darkslateblue;
-      }
-
-      .name {
-        margin-top: 4px;
-        color: #555555;
-        font-size: 0.7em;
-      }
-    }
-
     .ticket-info{
       margin-left: 24px;
       margin-right: 24px;
@@ -118,13 +98,6 @@ $border-size: 10px;
         color: #555555;
       }
     }
-
-    .tag-info {
-      .tag {
-        margin-right: 4px;
-      }
-    }
-
 
     .content {
       text-align: left;
