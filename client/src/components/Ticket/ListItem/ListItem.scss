@@ -3,13 +3,14 @@ $card-margin-right: 80px;
 $card-margin-top: 20px;
 $card-margin-bottom: 20px;
 
+$card-padding: 10px;
+
 $border-size: 10px;
 
 .card {
   display: flex;
-
-  margin-top: $card-margin-top;
   margin-bottom: $card-margin-bottom;
+  padding: $card-padding;
 
   box-shadow: 0 1px 3px 0 hsla(0, 0%, 0%, 0.2);
   border-radius: 8px;

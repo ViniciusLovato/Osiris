@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+
 import PropTypes from 'prop-types';
 import './ListItem.css';
 
@@ -19,18 +21,20 @@ const projectNames = ['Sigma', 'Zeta', 'Epsilon'];
 const status = ['New', 'Open', 'Pending', 'On-hold', 'Solved', 'Closed'];
 
 const ListItem = (props) => (
-  <li>
-    <div className={'card ' + (props.priority)}>
-      <div className="card-content">
-        <Avatar name={userNames[Math.floor(Math.random() * userNames.length)]}/>
-        <TicketBasicInfo subject={props.subject}
-          description={props.description}
-          timestap={props.timestamp} />
-        <TicketStatus status={status[Math.floor(Math.random() * status.length)]}/>
-        <TicketProject name={projectNames[Math.floor(Math.random() * projectNames.length)]}/>
+  <Link to={`/tickets/${props._id}`}> 
+    <li>
+      <div className={'card ' + (props.priority)}>
+        <div className="card-content">
+          <Avatar name={userNames[Math.floor(Math.random() * userNames.length)]}/>
+          <TicketBasicInfo subject={props.subject}
+            description={props.description}
+            timestap={props.timestamp} />
+          <TicketStatus status={status[Math.floor(Math.random() * status.length)]}/>
+          <TicketProject name={projectNames[Math.floor(Math.random() * projectNames.length)]}/>
+        </div>
       </div>
-    </div>
-  </li>
+    </li>
+  </Link>
 );
 
 ListItem.propTypes = propTypes;

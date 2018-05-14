@@ -7,8 +7,10 @@ import SidebarContent from '../components/UI/Sidebar/Content';
 import NavbarContent from '../components/UI/Navbar/Content';
 
 import TicketsOverview from './Ticket/Overview'
-import Dashboard from './Dashboard/Dashboard';
+import TicketDetail from './Ticket/Detail';
 import TicketForm from './Ticket/Form';
+
+import Dashboard from './Dashboard/Dashboard';
 
 const Root = () => (
   <Router> 
@@ -22,7 +24,8 @@ const Root = () => (
       <div className="grid-content">
           <Route exact path="/"/>
           <Route path="/dashboard" component={Dashboard} />
-          <Route path="/tickets" component={TicketsOverview} />
+          <Route exact path="/tickets/:id" component={TicketDetail} />          
+          <Route exact path="/tickets" component={TicketsOverview} />
           <Route path="/createTicket" component={TicketForm} />
       </div>
     </div>

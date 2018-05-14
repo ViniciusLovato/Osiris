@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
 import List from '../../components/Ticket/List/List';
+import HorizontalButtons from '../../components/Ticket/HorizontalButtons/HorizontalButtons';
+import Filter from '../../components/Ticket/Filter/Filter';
 
 import api from '../../API/API';
 
@@ -25,9 +27,13 @@ class TicketsOverview extends Component {
     return (   
       <div className="tickets-overview">
         <div className="tickets-overview-horizontal-buttons">
+          <HorizontalButtons/>
         </div>
         <div className="tickets-overview-list">
           <List items={this.state.tickets}/>        
+        </div>
+        <div className="tickets-overview-filter">
+          <Filter/>
         </div>
       </div>  
     );
