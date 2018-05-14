@@ -4,7 +4,21 @@
   
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   
-  
+  div {
+    margin-right: 10px;
+  }
+
+  @media (max-width: 650px) {
+    div:nth-child(2){
+      display: none
+    }
+  }
+
+  div:last-child{
+    margin-left: auto;
+    margin-right: 0
+  }
 }
+

@@ -29,10 +29,21 @@ $padding-right: 50px;
         grid-column: 14 / 17;
         grid-row: 1 / -1;
     }
-}
 
-@media (max-width: 650px) {
-    .tickets-overview-filter {
-        display: none;
+    @media (max-width: 650px) {
+        .tickets-overview-filter {
+            display: none;
+        }
+    
+        .tickets-overview-horizontal-buttons {
+            grid-column: 1 / -1;
+            grid-row: 1 / 2;
+        }
+    
+        .tickets-overview-list {
+            grid-column: 1 / -1;
+            grid-row: 2 / -1;
+        }
     }
 }
+
