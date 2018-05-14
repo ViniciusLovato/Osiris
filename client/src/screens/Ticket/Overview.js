@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 
 import List from '../../components/Ticket/List/List';
-import './Overview.css';
 
 import api from '../../API/API';
+
+
+import './Overview.css';
+
 
 class TicketsOverview extends Component {
 
@@ -21,7 +24,11 @@ class TicketsOverview extends Component {
   render() {
     return (   
       <div className="tickets-overview">
-        <List items={this.state.tickets}/>
+        <div className="tickets-overview-horizontal-buttons">
+        </div>
+        <div className="tickets-overview-list">
+          <List items={this.state.tickets}/>        
+        </div>
       </div>  
     );
   }

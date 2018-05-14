@@ -2,7 +2,6 @@ import React from 'react';
 import FlipMove from 'react-flip-move';
 import PropTypes from 'prop-types';
 
-import './List.css';
 import ListItem from '../ListItem/ListItem';
 
 const propTypes = {

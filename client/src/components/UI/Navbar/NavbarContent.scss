@@ -1,0 +1,14 @@
+.flexbox-header {
+  height: 100%;  
+  display: flex;
+  align-items: center;
+  background-color: blue;
+}
+
+.flexbox-header :nth-child(3) {
+  margin-left: auto;
+}
+
+.flexbox-header > div {
+  font-size: 1em;
+}

@@ -5,7 +5,7 @@ import './ListItem.css';
 import TicketBasicInfo from './TicketBasicInfo';
 import TicketStatus from './TicketStatus';
 import TicketProject from './TicketProject';
-import Avatar from '../../UI/Avatar/Avatar';
+import Avatar from '../../UI/User/Avatar';
 
 const propTypes = {
   subject: PropTypes.string.isRequired,
