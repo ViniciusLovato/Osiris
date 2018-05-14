@@ -1,23 +1,38 @@
+$padding-left: 50px;
+$padding-right: 50px;
+
 .tickets-overview {
     height: 100%;
 
     display: grid;    
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: 100px 1fr;
-    grid-gap: 20px;
 
     .tickets-overview-horizontal-buttons {
-        grid-column: 2 / 14;
+
+        padding-left: $padding-left;
+        padding-right: $padding-right;
+
+        grid-column: 1 / 14;
         grid-row: 1 / 2;
     }
 
     .tickets-overview-list {
-        grid-column: 2 / 14;
+        grid-column: 1 / 14;
         grid-row: 2 / -1;
+
+        padding-left: $padding-left;
+        padding-right: $padding-right;
     }
 
     .tickets-overview-filter {
         grid-column: 14 / 17;
         grid-row: 1 / -1;
+    }
+}
+
+@media (max-width: 650px) {
+    .tickets-overview-filter {
+        display: none;
     }
 }
